@@ -1,0 +1,147 @@
+Prueba Técnica Automatización – Playwright + TypeScript
+Descripción
+
+Este proyecto implementa una prueba de integración utilizando Playwright con TypeScript contra la API pública PokéAPI.
+
+El objetivo del test es:
+
+Obtener la cadena de evoluciones de Squirtle.
+
+Extraer nombre y peso (weight) de cada Pokémon en la cadena.
+
+Ordenar los Pokémon alfabéticamente sin utilizar .sort().
+
+Mostrar los resultados en consola.
+
+Guardar los resultados en un archivo JSON.
+
+Generar un reporte HTML de Playwright.
+
+Estructura del proyecto
+pokemon-playwright-pom/
+│
+├── api/
+│   └── pokemon.api.ts
+│
+├── services/
+│   └── evolution.service.ts
+│
+├── utils/
+│   └── alphabeticalSort.ts
+│
+├── tests/
+│   └── pokemonEvolution.spec.ts
+│
+├── test-results/
+│
+├── playwright.config.ts
+├── package.json
+└── README.md
+Descripción de carpetas
+
+api/
+Contiene la lógica para consumir la API pública de Pokémon.
+
+services/
+Implementa la lógica de negocio, como obtener la cadena de evoluciones.
+
+utils/
+Funciones utilitarias reutilizables, como el algoritmo de ordenamiento alfabético sin .sort().
+
+tests/
+Contiene los tests de Playwright.
+
+test-results/
+Se generan automáticamente los reportes y archivos de salida.
+
+Instalación
+
+Clonar el repositorio:
+
+git clone <URL_DEL_REPOSITORIO>
+cd pokemon-playwright-pom
+
+Instalar dependencias:
+
+npm install
+
+Instalar navegadores de Playwright:
+
+npx playwright install
+Ejecutar los tests
+
+Ejecutar todos los tests:
+
+npx playwright test
+Resultados esperados
+
+En consola se mostrará la lista de Pokémon ordenados alfabéticamente con su peso.
+
+Ejemplo:
+
+Pokémon ordenados alfabéticamente:
+
+┌─────────┬────────────┬────────┐
+│ (index) │ name       │ weight │
+├─────────┼────────────┼────────┤
+│ 0       │ blastoise  │ 855    │
+│ 1       │ squirtle   │ 90     │
+│ 2       │ wartortle  │ 225    │
+└─────────┴────────────┴────────┘
+
+También se generará un archivo:
+
+test-results/pokemon-info.json
+
+Ejemplo:
+
+[
+  { "name": "blastoise", "weight": 855 },
+  { "name": "squirtle", "weight": 90 },
+  { "name": "wartortle", "weight": 225 }
+]
+Reporte HTML
+
+Después de ejecutar los tests, Playwright genera un reporte HTML.
+
+Para abrirlo:
+
+npx playwright show-report
+Criterios de aceptación cumplidos
+
+Todas las solicitudes a la API responden con status 200.
+
+Se obtienen correctamente los nombres de los Pokémon en la cadena de evoluciones.
+
+La lista de Pokémon se ordena alfabéticamente sin usar .sort().
+
+Se muestran los nombres con su peso en la salida.
+
+Se genera un reporte HTML de ejecución.
+
+Requisitos
+
+Node.js >= 18
+
+NPM
+
+Playwright
+
+Conexión a internet para consumir PokéAPI
+
+💡 Consejo antes de entregar la prueba:
+Sube el proyecto a un repositorio público de GitHub y asegúrate de que en el repo estén:
+
+api/
+
+services/
+
+utils/
+
+tests/
+
+playwright.config.ts
+
+package.json
+
+README.md
